@@ -37,7 +37,7 @@ const SearchBar = () => {
       />
       <button onClick={handleClick}>Fetch</button>
     </div>
-    <Results />
+    <Results repos={repos}/>
     </>
   );
 };
