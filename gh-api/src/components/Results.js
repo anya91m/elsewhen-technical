@@ -1,8 +1,16 @@
 import React from 'react';
 
-const Results = () => {
+const Results = (props) => {
+  const { repos } = props;
+  console.log(`Repos is:`, repos);
+
+  // const repoList = repos.map((item) => {
+  //   <li>{item.name}</li>
+  // })
+
   return (
-    <table class="results-table">
+    <div>
+      <table class="results-table">
       <tr>
         <th>id</th>
         <th>name</th>
@@ -14,8 +22,8 @@ const Results = () => {
         <td>firstrepo</td>
         <td>anya91m</td>
       </tr>
-    </table>
-
+      </table>
+    </div>
   );
 };
 
