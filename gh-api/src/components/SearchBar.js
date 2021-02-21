@@ -1,43 +1,44 @@
 import React, { useState } from 'react';
-import Results from './Results'
+import Results from './Results';
 
 
 const SearchBar = () => {
 
   const [searchInput, setSearchInput] = useState ('');
-  const [repos, setRepos] = useState([]);
+
+  const [repositories, setRepositories] = useState([]);
 
   const handleChange = (event) => {
     setSearchInput(event.target.value)
   }
 
+  console.log(searchInput)
+
   const handleClick = async () => {
+    console.log(searchInput);
 
-    const result = () => {
-      fetch(`https://api.github.com/orgs/${searchInput}/repos`)
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-        })
-        .catch((err) => console.log(err));
-    }
-
-    setRepos(result);
+    const repoEndpoint = `https://api.github.com/orgs/${searchInput}/repos`
+      fetch(repoEndpoint).then(response => response.json()).then((data) => {
+        // console.log(data)
+        const result = data
+        // console.log(result)
+      setRepositories(result)
+      });
   };
 
   return (
     <>
-    <div>
-      <input
-        type="text"
-        placeholder="Search for a GitHub repo"
-        className="form-control form-search"
-        value={searchInput}
-        onChange={handleChange}
-      />
-      <button onClick={handleClick}>Fetch</button>
-    </div>
-    <Results repos={repos}/>
+      <div>
+        <input
+          type="text"
+          placeholder="Search for a GitHub repo"
+          className="form-control form-search"
+          value={searchInput}
+          onChange={handleChange}
+        />
+        <button onClick={handleClick}>Fetch</button>
+      </div>
+      <Results repositories={repositories} />
     </>
   );
 };
