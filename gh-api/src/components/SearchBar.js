@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
 import Results from './Results';
 
+const SearchBar = (props) => {
 
-const SearchBar = () => {
 
   const [searchInput, setSearchInput] = useState ('');
-
   const [repositories, setRepositories] = useState([]);
+  const [contrUrl, setContrUrl] = useState([]);
+
 
   const handleChange = (event) => {
     setSearchInput(event.target.value)
   }
-
-  console.log(searchInput)
 
   const handleClick = async () => {
     console.log(searchInput);
@@ -38,7 +37,7 @@ const SearchBar = () => {
         />
         <button onClick={handleClick}>Fetch</button>
       </div>
-      <Results repositories={repositories} />
+      <Results getNextUrl={props.getNextUrl} repositories={repositories} />
     </>
   );
 };
