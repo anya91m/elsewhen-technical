@@ -13,7 +13,6 @@ const Contributors = (props) => {
     });
   });
 
-
   const contrList = contributors.length !== 0 ? (
     contributors.map((contr) =>
       <tr>

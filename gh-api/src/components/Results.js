@@ -17,7 +17,7 @@ const Results = (props) => {
         <td>{repo.id}</td>
         <td>{repo.name}</td>
         <td>{repo.description}</td>
-        <td id={repo.contributors_url} onClick={handleClick}>{repo.contributors_url}</td>
+        <td id={repo.contributors_url} onClick={handleClick}>View Contributors</td>
       </tr>
   )
     ) : (
