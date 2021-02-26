@@ -3,11 +3,9 @@ import Results from './Results';
 
 const SearchBar = (props) => {
 
-
   const [searchInput, setSearchInput] = useState ('');
   const [repositories, setRepositories] = useState([]);
   const [contrUrl, setContrUrl] = useState([]);
-
 
   const handleChange = (event) => {
     setSearchInput(event.target.value)

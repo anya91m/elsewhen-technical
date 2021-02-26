@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-
 import { BrowserRouter,Switch, Route, Link } from "react-router-dom";
 import SearchBar from './components/SearchBar';
 import Contributors from './components/Contributors';

@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
 const Contributors = (props) => {
-  console.log(props)
-  //props.contrUrl
+  // console.log(props.dUrl)
 
   const [contributors, setContributors] = useState([]);
 
   useEffect(()=> {
-    fetch(props).then(response => response.json()).then((data) => {
+    fetch(props.dUrl).then(response => response.json()).then((data) => {
         console.log(data)
         const result = data
         setContributors(result)
